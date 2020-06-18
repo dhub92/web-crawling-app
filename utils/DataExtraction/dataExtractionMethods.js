@@ -38,9 +38,12 @@ const getRankAndTitle = (trTag) => ({
 
 const getPointsAndComments = (trTag) => {
   const info = trTag.contents[1].contents;
+  let comment;
+  if (!info[8]) comment = "No data";
+  else comment = info[8].text;
   return {
     points: formatPoint(info[0].text),
-    comments: formatComment(info[8].text),
+    comments: formatComment(comment),
   };
 };
 

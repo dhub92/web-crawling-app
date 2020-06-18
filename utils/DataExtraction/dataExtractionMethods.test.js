@@ -1,25 +1,16 @@
 const {
   convertHTMLToSoupObject,
-  extractTagsFromSoupObject,
   getListOfRankAndTitle,
   getListOfPointsAndComments,
 } = require("./dataExtractionMethods");
 
 const JSSoup = require("jssoup").default;
 
-const exampleHtml = require("../exampleHTML");
-
 test("should convert HTML to soup object", () => {
   const mocketHtml = "<div></div>";
   const expectedSoup = new JSSoup(mocketHtml);
   expect(convertHTMLToSoupObject(mocketHtml)).toEqual(expectedSoup);
 });
-
-/*test("should extract tags from soup object", () => {
-  const expectedTagsLength = extractTagsFromSoupObject(convertHTMLToSoupObject(exampleHtml)).length;
-  expect(expectedTagsLength).toEqual(90);
-  
-});*/
 
 test("should extract title and rank object from tag", () => {
   const mockedTags = [
