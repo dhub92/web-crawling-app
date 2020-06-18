@@ -1,6 +1,11 @@
 const JSSoup = require("jssoup").default;
 const _ = require("lodash");
-const { formatTitle, formatRank, formatPoint, formatComment } = require('../Formater/formaterMethods')
+const {
+  formatTitle,
+  formatRank,
+  formatPoint,
+  formatComment,
+} = require("../Formating/formatingMethods");
 const convertHTMLToSoupObject = (html) => new JSSoup(html);
 
 const extractTagsFromSoupObject = (soup) =>
@@ -32,9 +37,7 @@ const getRankAndTitle = (trTag) => ({
 });
 
 const getPointsAndComments = (trTag) => {
-    console.log(trTag);
   const info = trTag.contents[1].contents;
-  console.log(info);
   return {
     points: formatPoint(info[0].text),
     comments: formatComment(info[8].text),
