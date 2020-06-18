@@ -1,6 +1,6 @@
 const JSSoup = require("jssoup").default;
 const _ = require("lodash");
-
+const { formatTitle, formatRank, formatPoint, formatComment } = require('../Formater/formaterMethods')
 const convertHTMLToSoupObject = (html) => new JSSoup(html);
 
 const extractTagsFromSoupObject = (soup) =>
@@ -39,16 +39,6 @@ const getPointsAndComments = (trTag) => {
     points: formatPoint(info[0].text),
     comments: formatComment(info[8].text),
   };
-};
-
-const formatTitle = (title) =>
-  title.replace(/\s+/g, " ").replace(/ \(([^)]+)\)/g, "");
-const formatRank = (rank) => rank.replace(/\./g, "");
-const formatPoint = (point) => parseInt(point.replace(/ [\w]+/g, ""));
-const formatComment = (comment) => {
-  const formatedComment = comment.replace(/&nbsp;[\w]+/g, "");
-  if (formatedComment === comment) return 0;
-  return parseInt(formatedComment);
 };
 
 module.exports = {
