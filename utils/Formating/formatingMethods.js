@@ -8,4 +8,9 @@ const formatComment = (comment) => {
   return parseInt(formatedComment);
 };
 
-module.exports = { formatTitle, formatRank, formatPoint, formatComment };
+const mergeLists = (fisrtList, secondList) =>
+fisrtList.map((item, index) => ({ ...item, ...secondList[index] }));
+
+
+
+module.exports = { formatTitle, formatRank, formatPoint, formatComment,mergeLists };
