@@ -7,6 +7,7 @@ A web crawling app that extract the first 30 entries from https://news.ycombinat
 * **JSSoup:** HTML parser for Javascript  https://www.npmjs.com/package/jssoup
 * **Lodash:** A JavaScript utility library
 * **Jest:** A JavaScript Testing Framework
+* **Axios:** A Promise based HTTP client for the browser and node.js
 ## How to use it
 1. Download it or clone it with git using `git clone https://github.com/dhub92/web-crawling-app.git`
 2. Run `npm install`
